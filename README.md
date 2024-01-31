@@ -13,7 +13,7 @@ and the Flutter guide for
 
 Interactive Text
 
-[!](https://github.com/chandresh204/interactive_text/blob/main/asset/interactive_text.jpg)
+![](https://github.com/chandresh204/interactive_text/blob/main/asset/interactive_text.jpg)
 
 ## Features
 
