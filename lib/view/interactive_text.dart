@@ -10,7 +10,13 @@ class InteractiveText extends StatelessWidget {
   final TextStyle linkStyle;
   final Function(String)? onUrlClick;
   final Function(String)? onPhoneClick;
-  const InteractiveText({super.key, required this.text, required this.textStyle, required this.linkStyle, this.onUrlClick, this.onPhoneClick});
+  const InteractiveText(
+      {super.key,
+      required this.text,
+      required this.textStyle,
+      required this.linkStyle,
+      this.onUrlClick,
+      this.onPhoneClick});
 
   @override
   Widget build(BuildContext context) {
@@ -18,28 +24,34 @@ class InteractiveText extends StatelessWidget {
     List<String> urls = searchUrlInText(text);
     Map<String, HighlightedWord> words = {};
     onNumTap(num1) {
-      if(onPhoneClick != null) {
+      if (onPhoneClick != null) {
         onPhoneClick!(num1);
       } else {
         launchUrl(Uri.parse('tel:$num1'));
       }
     }
+
     onUrlTap(url) {
-      if(onUrlClick != null) {
+      if (onUrlClick != null) {
         onUrlClick!(url);
       } else {
         launchUrl(Uri.parse(url));
       }
     }
-    for(var num in phoneNumbers) {
-      words[num] = HighlightedWord(textStyle: linkStyle, onTap: () {
-        onNumTap(num);
-      });
+
+    for (var num in phoneNumbers) {
+      words[num] = HighlightedWord(
+          textStyle: linkStyle,
+          onTap: () {
+            onNumTap(num);
+          });
     }
-    for(var url in urls) {
-      words[url] = HighlightedWord(textStyle: linkStyle, onTap: () {
-        onUrlTap(url);
-      });
+    for (var url in urls) {
+      words[url] = HighlightedWord(
+          textStyle: linkStyle,
+          onTap: () {
+            onUrlTap(url);
+          });
     }
     return TextHighlight(text: text, words: words, textStyle: textStyle);
   }

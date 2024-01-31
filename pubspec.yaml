@@ -1,6 +1,6 @@
 name: interactive_text
 description: "A package that allow you to interact with phone number and web links in your text"
-version: 0.0.2
+version: 0.0.3
 homepage: 'https://github.com/chandresh204/interactive_text'
 
 environment:
