@@ -13,6 +13,8 @@ and the Flutter guide for
 
 Interactive Text
 
+[!](https://github.com/chandresh204/interactive_text/blob/main/asset/interactive_text.jpg)
+
 ## Features
 
 This package allows you to interact with your simple text. like dial a phone number which is in the text or opening a web link,
