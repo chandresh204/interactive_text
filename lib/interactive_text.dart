@@ -1,1 +1,1 @@
-export 'package:interactive_text/interactive_text.dart';
+export 'package:interactive_text/view/interactive_text.dart';
