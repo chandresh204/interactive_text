@@ -1,0 +1,1 @@
+export 'package:interactive_text/interactive_text.dart';
