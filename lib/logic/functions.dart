@@ -11,7 +11,10 @@ List<String> searchUrlInText(String text) {
       }
       var linkFinalIndex = text.indexOf(' ', index);
       if (linkFinalIndex == -1) {
-        linkFinalIndex = (text.length);
+        linkFinalIndex = text.indexOf('\n', index);
+        if(linkFinalIndex == -1) {
+          linkFinalIndex = (text.length);
+        }
       }
       final link = text.substring(index, linkFinalIndex);
       urls.add(link);
@@ -43,11 +46,13 @@ List<String> searchPhoneInText(String text) {
     } catch (e) {
       acceptableChar = false;
     }
-    if (i == (text.length - 1)) {
+    if (acceptableChar && (i == (text.length - 1))) {
       if (capturingStarted) {
         numberFound += char;
         capturingStarted = false;
-        numbers.add(numberFound);
+        if(numberFound.length > 4) {
+          numbers.add(numberFound);
+        }
         continue;
       }
     }
