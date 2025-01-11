@@ -8,7 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  final String sampleText = 'Visit https://www.example.com or Contact : +12345678910 for more details, Share your feedback at https://example.feedback.com';
+  final String sampleText = 'Visit https://www.example.com or Contact : 9876543210 for more details, Share your feedback at https://example.feedback.com';
   final TextStyle textStyle = const TextStyle(color: Colors.black, fontSize: 30);
   final TextStyle linkStyle = const TextStyle(color: Colors.blue, fontSize: 30);
 

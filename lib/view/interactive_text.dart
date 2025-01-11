@@ -10,19 +10,23 @@ class InteractiveText extends StatelessWidget {
   final TextStyle linkStyle;
   final Function(String)? onUrlClick;
   final Function(String)? onPhoneClick;
+  final Function(String)? onEmailClick;
   const InteractiveText(
       {super.key,
       required this.text,
       required this.textStyle,
       required this.linkStyle,
       this.onUrlClick,
-      this.onPhoneClick});
+      this.onPhoneClick,
+        this.onEmailClick});
 
   @override
   Widget build(BuildContext context) {
-    List<String> phoneNumbers = searchPhoneInText(text);
-    List<String> urls = searchUrlInText(text);
+    List<String> phoneNumbers = searchInText(text, SearchType.phone);
+    List<String> urls = searchInText(text, SearchType.url);
+    List<String> emails = searchInText(text, SearchType.email);
     Map<String, HighlightedWord> words = {};
+
     onNumTap(num1) {
       if (onPhoneClick != null) {
         onPhoneClick!(num1);
@@ -36,6 +40,13 @@ class InteractiveText extends StatelessWidget {
         onUrlClick!(url);
       } else {
         launchUrl(Uri.parse(url));
+      }
+    }
+    onEmailTap(email) {
+      if(onEmailClick != null) {
+        onEmailClick!(email);
+      } else {
+        launchUrl(Uri.parse('mailto:$email'));
       }
     }
 
@@ -52,6 +63,14 @@ class InteractiveText extends StatelessWidget {
           onTap: () {
             onUrlTap(url);
           });
+    }
+    for (var email in emails) {
+      words[email] = HighlightedWord(
+        textStyle: linkStyle,
+        onTap: () {
+          onEmailTap(email);
+        }
+      );
     }
     return TextHighlight(text: text, words: words, textStyle: textStyle);
   }
