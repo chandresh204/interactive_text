@@ -51,7 +51,3 @@ Widget build(BuildContext context) {
   );
 }
 ```
-
-## Additional information
-
-Currently this package only support phone number and web links
