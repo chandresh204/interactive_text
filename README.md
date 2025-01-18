@@ -21,6 +21,7 @@ This package allows you to interact with your simple text. like dial a phone num
 
 ## Getting started
 
+Add interactive_text: ^0.0.6 in your pubspec.yaml file in dependencies section
 
 ## Usage
 
@@ -51,7 +52,3 @@ Widget build(BuildContext context) {
   );
 }
 ```
-
-## Additional information
-
-Currently this package only support phone number and web links
