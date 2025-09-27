@@ -8,6 +8,7 @@ class InteractiveText extends StatelessWidget {
   final String text;
   final TextStyle textStyle;
   final TextStyle linkStyle;
+  final double? textScalerFactor;
   final Function(String)? onUrlClick;
   final Function(String)? onPhoneClick;
   final Function(String)? onEmailClick;
@@ -15,10 +16,11 @@ class InteractiveText extends StatelessWidget {
       {super.key,
       required this.text,
       required this.textStyle,
-      required this.linkStyle,
+      required this.linkStyle, 
+        this.textScalerFactor,
       this.onUrlClick,
       this.onPhoneClick,
-        this.onEmailClick});
+        this.onEmailClick,});
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +74,6 @@ class InteractiveText extends StatelessWidget {
         }
       );
     }
-    return TextHighlight(text: text, words: words, textStyle: textStyle);
+    return TextHighlight(text: text, words: words, textStyle: textStyle, textScaleFactor: textScalerFactor);
   }
 }
